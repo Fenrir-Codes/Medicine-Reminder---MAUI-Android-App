@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicinereminder.MainPage"
+             Title="Medicine Reminder">
+
+    <Grid RowDefinitions="70,*,70">
+
+        <!-- Top -->
+        <BoxView Grid.Row="0" BackgroundColor="#212121" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+
+        <VerticalStackLayout 
+             Grid.Row="0"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"
+             Spacing="2"
+             Padding="10,0">
+
+            <!-- Title -->
+            <Label 
+                Text="Medicine Reminder" 
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="GreenYellow"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"/>
+
+            <!-- Registered users row -->
+            <HorizontalStackLayout 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="200"
+                Spacing="5">
+                
+                <Label 
+                    Text="Registered User's"
+                    FontSize="18"
+                    TextColor="White"
+                    HorizontalOptions="Start"/>
+
+                <Label x:Name="_userCountLabel"
+                    Text="{Binding _userCountText}"
+                    FontSize="18"
+                    TextColor="Green"
+                    HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!--  Activity indicator  -->
+        <ActivityIndicator 
+            x:Name="LoadingSpinner"
+            Grid.Row="1"
+            IsRunning="True"
+            IsVisible="True"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="GreenYellow"/>
+
+        <!-- List -->
+        <VerticalStackLayout 
+            Grid.Row="1" 
+            x:Name="ContentLayout" 
+            Padding="20">
+
+            <CollectionView x:Name="UsersCollectionView">
+                
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="6" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="LightGray"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="60"
+                            WidthRequest="360">
+
+                            <!--  If you want you can make it gradient, that is why i wrote this lines  -->
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="1,0">
+                                    <GradientStop Color="#424242" Offset="0.1" />
+                                    <GradientStop Color="#424242" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Button Text="{Binding Name}"
+                                Margin="20,0"
+                                FontSize="24"
+                                FontAttributes="Bold"
+                                HeightRequest="60"
+                                WidthRequest="360"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                TextColor="White"
+                                Clicked="OnUserSelected" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="2"
+              BackgroundColor="#212121"
+              ColumnDefinitions="*,5,*"  
+              Padding="5">
+
+            <!-- 1: Add user button -->
+            <VerticalStackLayout Grid.Column="0"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+                
+                <Image Source="plus.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+                
+                <Label Text="New User"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+                
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAddUserClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+                
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="1"
+                     WidthRequest="2"
+                     BackgroundColor="#555"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Fill"
+                     Margin="0,2"
+                     CornerRadius="1"/>
+
+            <!-- 2 delete button -->
+            <VerticalStackLayout Grid.Column="2"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+                <Image Source="trash.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"
+                       />
+                <Label Text="Delete Database"
+                       FontSize="16"
+                       TextColor="Red"
+                       HorizontalOptions="Center"/>
+                
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDeleteDatabaseClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+                
+            </VerticalStackLayout>
+
+        </Grid>
+
+
+    </Grid>
+
+</ContentPage>

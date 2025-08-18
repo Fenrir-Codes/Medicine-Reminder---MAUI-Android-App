@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicinereminder.Views.MedicineEntryPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="70,*,70">
+
+        <!-- Top -->
+        <BoxView Grid.Row="0" BackgroundColor="#212121" />
+        <BoxView Grid.Row="1" BackgroundColor="white" />
+
+        <VerticalStackLayout Grid.Row="0"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     Spacing="2"
+                     Padding="10,0">
+
+            <!-- Title -->
+            <Label 
+                Text="Medicine Details" 
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="GreenYellow"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"/>
+
+            <!-- Registered medicine details row -->
+            <HorizontalStackLayout 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="250"
+                Spacing="5">
+                
+                <Label 
+                    Text="Register the medicine details"
+                    FontSize="18"
+                    TextColor="White"
+                    HorizontalOptions="Start"/>
+                
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!--  Grid  -->
+        <Grid Grid.Row="1" Padding="20" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Medicine name -->
+            <Label Grid.Row="0" FontSize="16" Text="Name of your medicine:"/>
+            <Entry Grid.Row="1" x:Name="MedicineNameEntry" Placeholder="Enter the name of the medicine"/>
+
+
+            <!-- Days label -->
+            <Label Grid.Row="2" FontSize="16" Text="Choose the days, dosage and timing:"/>
+
+            <ScrollView Grid.Row="3" Padding="10" >
+                <VerticalStackLayout Spacing="5">
+
+                    <!-- Monday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Monday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="MondayTabletPicker" StyleId="MondayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="MondayMgPicker" StyleId="MondayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="MondaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Tuesday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5"  BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Tuesday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="TuesdayTabletPicker" StyleId="TuesdayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="TuesdayMgPicker" StyleId="TuesdayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="TuesdaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Wednesday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Wednesday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="WednesdayTabletPicker" StyleId="WednesdayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="WednesdayMgPicker" StyleId="WednesdayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="WednesdaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Thursday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Thursday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="ThursdayTabletPicker" StyleId="ThursdayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="ThursdayMgPicker" StyleId="ThursdayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="ThursdaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Friday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Friday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="FridayTabletPicker" StyleId="FridayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="FridayMgPicker" StyleId="FridayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="FridaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Saturday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Saturday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="SaturdayTabletPicker" StyleId="SaturdayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="SaturdayMgPicker" StyleId="SaturdayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="SaturdaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Sunday -->
+                    <Border Stroke="Black" StrokeShape="RoundRectangle 8" HeightRequest="60">
+                        <Grid ColumnDefinitions="2*,2*,2*,Auto" Padding="12,5" BackgroundColor="White">
+                            <Label Grid.Column="0" Text="Sunday" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" x:Name="SundayTabletPicker" StyleId="SundayTablet" Title="Amount" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1</x:String>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                        <x:String>6</x:String>
+                                        <x:String>7</x:String>
+                                        <x:String>8</x:String>
+                                        <x:String>9</x:String>
+                                        <x:String>10</x:String>
+                                        <x:String>20</x:String>
+                                        <x:String>25</x:String>
+                                        <x:String>40</x:String>
+                                        <x:String>50</x:String>
+                                        <x:String>75</x:String>
+                                        <x:String>100</x:String>
+                                        <x:String>200</x:String>
+                                        <x:String>300</x:String>
+                                        <x:String>400</x:String>
+                                        <x:String>500</x:String>
+                                        <x:String>600</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker Grid.Column="2" x:Name="SundayMgPicker" StyleId="SundayMg" Title="Dosage" SelectedIndexChanged="DayDosageSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pill</x:String>
+                                        <x:String>mg</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <CheckBox Grid.Column="3" x:Name="SundaySwitch" VerticalOptions="Center" HorizontalOptions="End" Color="Black" CheckedChanged="CheckBoxChecked"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- TimePicker -->
+                    <Frame BackgroundColor="Transparent" BorderColor="Black" Padding="10" CornerRadius="8" HasShadow="False">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Fill">
+                            <!-- Label -->
+                            <Label Text="Pick timings:" FontAttributes="Bold" Margin="0,10" />
+
+                            <!-- List of added times -->
+                            <CollectionView x:Name="TimeListView" HeightRequest="120">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Text="{Binding}" VerticalOptions="Center" />
+                                            <Button Grid.Column="1" Text="X" BackgroundColor="DarkSeaGreen"  
+                                Clicked="OnRemoveTimeClicked" CommandParameter="{Binding}" HorizontalOptions="End"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                            <!-- TimePicker -->
+                            <HorizontalStackLayout HorizontalOptions="Fill">
+                                <TimePicker x:Name="NewTimePicker" Time="06:00" HorizontalOptions="Fill" WidthRequest="350"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Add Button -->
+                            <Button Text="Add Time" 
+                                BackgroundColor="DarkSeaGreen" 
+                                Clicked="OnAddTimeClicked"
+                                HorizontalOptions="Fill"/>
+                            
+                        </VerticalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+        </Grid>
+
+        <Grid Grid.Row="2"
+              BackgroundColor="#212121"
+              ColumnDefinitions="*,5,*"  
+              Padding="5">
+
+            <!-- 1: Add user button -->
+            <VerticalStackLayout Grid.Column="0"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+
+                <Image Source="save.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Save"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSaveClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="1"
+                     WidthRequest="2"
+                     BackgroundColor="#555"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Fill"
+                     Margin="0,2"
+                     CornerRadius="1"/>
+
+            <!-- 2 delete button -->
+            <VerticalStackLayout Grid.Column="2"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+                <Image Source="goback.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"
+                       />
+                <Label Text="Back"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackButtonClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+
+    </Grid>
+
+
+</ContentPage>

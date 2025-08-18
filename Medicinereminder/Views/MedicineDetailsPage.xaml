@@ -1,0 +1,204 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicinereminder.Views.MedicineDetailsPage"
+             Title="Medicine Details">
+
+    <Grid RowDefinitions="70,*,70">
+
+        <!-- Felső rész -->
+        <BoxView Grid.Row="0" BackgroundColor="#212121" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+
+
+        <!-- Title -->
+        <Label Grid.Row="0"
+               Text="Medicine Details"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               FontSize="28"
+               TextColor="GreenYellow" 
+               FontAttributes="Bold"
+        />
+
+        <ActivityIndicator 
+            x:Name="LoadingSpinner"
+            Grid.Row="1"
+            IsRunning="True"
+            IsVisible="True"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="GreenYellow"/>
+
+        <VerticalStackLayout Grid.Row="1" x:Name="ContentLayout" Spacing="15" Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                   
+                    <ColumnDefinition Width="*"/>
+                  
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Medicin:" FontSize="16" TextColor="White" Grid.Row="0" Grid.Column="0"/>
+                <Label x:Name="NameLabel" FontSize="16"  TextColor="GreenYellow" Text="N/A" Grid.Row="0" Grid.Column="1"/>
+
+                <Label Text="Schedules:" FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="2"/>
+
+                <ScrollView Grid.Row="3" Grid.ColumnSpan="2" Padding="5" HeightRequest="580">
+                    
+                    <CollectionView x:Name="SchedulesCollectionView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="4">
+                                    <Border HeightRequest="60"
+                                            WidthRequest="360"
+                                            MinimumWidthRequest="250"
+                                            StrokeShape="RoundRectangle 8"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Padding="10"
+                                            Stroke="LightGray">
+
+                                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
+
+                                            
+                                            <Label Text="{Binding _day}"
+                                                   TextColor="GreenYellow"
+                                                   FontAttributes="Bold"
+                                                   VerticalOptions="Center"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Margin="5,0,0,0" />
+
+                                            <Label Text="{Binding _dosage}"
+                                                    TextColor="GreenYellow"
+                                                   FontAttributes="Bold"
+                                                   VerticalOptions="Center"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Margin="0,0,5,0" />
+
+                                           
+                                            <Label Text="{Binding _timing}"
+                                                   TextColor="White"
+                                                   Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="2"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   Margin="5,0,0,0"
+                                                   LineBreakMode="WordWrap" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="2"
+              BackgroundColor="#212121"
+              ColumnDefinitions="*,5,*,5,*"  
+              Padding="5">
+
+
+                <!-- 1: refresh -->
+                <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 Spacing="2">
+
+                    <Image Source="update.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+
+                    <Label Text="Refresh"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRefreshButtonClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+
+                </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="1"
+                     WidthRequest="2"
+                     BackgroundColor="#555"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Fill"
+                     Margin="0,2"
+                     CornerRadius="1"/>
+
+            <!--  Edit  -->
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 Spacing="2">
+
+                <Image Source="edit.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Edit"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEditButtonClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+                <BoxView Grid.Column="3"
+                     WidthRequest="2"
+                     BackgroundColor="#555"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Fill"
+                     Margin="0,2"
+                     CornerRadius="1"/>
+
+                <!-- 2: Back -->
+                <VerticalStackLayout Grid.Column="4"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+                    <Image Source="goback.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"
+                       />
+                    <Label Text="Back"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+
+                </VerticalStackLayout>
+
+            </Grid>
+            
+    </Grid>
+
+
+</ContentPage>

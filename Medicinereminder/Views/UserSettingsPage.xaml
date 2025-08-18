@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicinereminder.Views.UserSettingsPage"
+             Title="UserSettingsPage">
+
+
+    <Grid RowDefinitions="70,*,70">
+
+        <!-- Top -->
+        <BoxView Grid.Row="0" BackgroundColor="#212121" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+
+        <VerticalStackLayout 
+             Grid.Row="0"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"
+             Spacing="2"
+             Padding="10,0">
+
+            <!-- Title -->
+            <Label 
+                Text="User Settings" 
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="GreenYellow"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"/>
+
+            <!-- Settings content -->
+            <HorizontalStackLayout 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="200"
+                Spacing="5">
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!--  Activity indicator  -->
+        <ActivityIndicator 
+            x:Name="LoadingSpinner"
+            Grid.Row="1"
+            IsRunning="True"
+            IsVisible="True"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="GreenYellow"/>
+
+        <VerticalStackLayout 
+            Grid.Row="1" 
+            x:Name="ContentLayout" 
+            Padding="20">
+
+            <Border Stroke="LightGray"
+        StrokeShape="RoundRectangle 12"
+        HeightRequest="60"
+        WidthRequest="360">
+
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#424242" Offset="0.1" />
+                        <GradientStop Color="#424242" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Label 
+                    Text="{Binding UserName}"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="Transparent"
+                    TextColor="White"/>
+            </Border>
+
+
+        </VerticalStackLayout>
+
+
+        <Grid Grid.Row="2"
+            BackgroundColor="#212121"
+            ColumnDefinitions="*,5,*,5,*"  
+            Padding="5">
+            <!-- Change UserName -->
+            <VerticalStackLayout Grid.Column="0"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center"
+                         Spacing="2">
+
+                <Image Source="crayon.png"
+                    WidthRequest="32"
+                    HeightRequest="32"
+                    HorizontalOptions="Center"/>
+
+                <Label Text="Change Name"
+                    FontSize="16"
+                    TextColor="GreenYellow"
+                    HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnUpdateUserClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="1"
+                WidthRequest="2"
+                BackgroundColor="#555"
+                HorizontalOptions="Center"
+                VerticalOptions="Fill"
+                Margin="0,2"
+                CornerRadius="1"/>
+
+            <!--  Remove User  -->
+            <VerticalStackLayout Grid.Column="2"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Center"
+                 Spacing="2">
+
+                <Image Source="trash.png"
+                    WidthRequest="32"
+                    HeightRequest="32"
+                    HorizontalOptions="Center"/>
+
+                <Label Text="Remove User"
+                    FontSize="16"
+                    TextColor="Red"
+                    HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDeleteUserClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="3"
+                WidthRequest="2"
+                BackgroundColor="#555"
+                HorizontalOptions="Center"
+                VerticalOptions="Fill"
+                Margin="0,2"
+                CornerRadius="1"/>
+
+            <!-- 2: Back -->
+            <VerticalStackLayout Grid.Column="4"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Center"
+                 Spacing="2">
+                <Image Source="goback.png"
+                    WidthRequest="32"
+                    HeightRequest="32"
+                    HorizontalOptions="Center"
+               />
+                <Label Text="Back"
+                    FontSize="16"
+                    TextColor="GreenYellow"
+                    HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackButtonClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+
+    </Grid>
+
+</ContentPage>

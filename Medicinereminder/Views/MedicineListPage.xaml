@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicinereminder.Views.MedicineListPage"
+             Title="MedicineListPage">
+
+
+    <Grid RowDefinitions="70,*,70">
+
+        <!-- Felső rész -->
+        <BoxView Grid.Row="0" BackgroundColor="#212121" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+
+        <Grid Grid.Row="0" BackgroundColor="#212121" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Cím -->
+            <Label 
+                x:Name="PageTopLabel"
+                Text="Medicin List" 
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="GreenYellow" />
+
+            <!-- Fogaskerék gomb -->
+            <ImageButton
+                Grid.Column="1"
+                Margin="0,0,10,0"
+                Source="settings.png"
+                WidthRequest="32"
+                HeightRequest="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"
+                Clicked="OnSettingsIconClicked"/>
+        </Grid>
+
+        <Label 
+           x:Name="InfoLabel"
+           Grid.Row="1"
+           Text=""
+           FontSize="18"
+           TextColor="Gray"
+           HorizontalTextAlignment="Center"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           IsVisible="False" />
+
+        <!-- Lista -->
+        <CollectionView Grid.Row="1" x:Name="MedicinesCollectionView" Margin="10,10">
+            
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="LightGray"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="60"
+                            WidthRequest="360">
+
+                        <!--  If you want you can make it gradient, that is why i wrote this lines  -->
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="#424242" Offset="0.1" />
+                                <GradientStop Color="#424242" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button Text="{Binding Name}"
+                            Clicked="OnMedicineSelected"
+                            Margin="20,0"
+                            FontSize="24"
+                            FontAttributes="Bold"
+                            HeightRequest="60"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            BackgroundColor="Transparent"
+                            TextColor="White"/>
+                        
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2"
+              BackgroundColor="#212121"
+              ColumnDefinitions="*,5,*"  
+              Padding="5">
+
+
+            <!-- 1: Home -->
+            <VerticalStackLayout Grid.Column="0"
+                  HorizontalOptions="Fill"
+                  VerticalOptions="Center"
+                  Spacing="2">
+
+                <Image Source="pill.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Add medication"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAddMedicineClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Függőleges elválasztó -->
+            <BoxView Grid.Column="1"
+              WidthRequest="2"
+              BackgroundColor="#555"
+              HorizontalOptions="Center"
+              VerticalOptions="Fill"
+              Margin="0,2"
+              CornerRadius="1"/>
+
+            <!-- 2: Wallet -->
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 Spacing="2">
+
+                <Image Source="goback.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"
+                />
+
+                <Label Text="Back"
+                FontSize="16"
+                TextColor="GreenYellow"
+                HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackButtonClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+        </Grid>
+        
+    </Grid>
+
+</ContentPage>
