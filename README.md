@@ -38,7 +38,7 @@ The app provides a simple and efficient way to receive reminders at the right ti
 
 
 ###Screenshots
-![Screenshot of Main Page](Medicinereminder/Screenshots/MR1png)
+![Screenshot of Main Page](Screenshots/MR1png)
 ![Screenshot of Medicine List Page For A Specific User](Screenshots/MR2.png)
 ![Screenshot of Medicine Details Page](Screenshots/MR3.png)
 ![Screenshot of Medicine Edit Page](Screenshots/MR4.png)
