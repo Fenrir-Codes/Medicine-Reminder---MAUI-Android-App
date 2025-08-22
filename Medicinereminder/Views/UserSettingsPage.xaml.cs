@@ -1,17 +1,23 @@
 using Medicinereminder.DataBase;
+using Medicinereminder.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Medicinereminder.Views;
 
 public partial class UserSettingsPage : ContentPage
 {
     private int _userId;
-    public string UserName { get; set; }
+    private string _userName = "";
+    public string UserName
+    {
+        get => _userName;
+        set { _userName = value; OnPropertyChanged(); }
+    }
 
-    public UserSettingsPage(int userId, string userName)
+    public UserSettingsPage(int userId)
     {
         InitializeComponent();
         _userId = userId;
-        UserName = string.IsNullOrWhiteSpace(userName) ? "N/A" : userName;
     }
 
     protected override async void OnAppearing()
@@ -23,7 +29,8 @@ public partial class UserSettingsPage : ContentPage
         LoadingSpinner.IsVisible = true;
         ContentLayout.IsVisible = false;
 
-        await Task.WhenAny(Task.Delay(400));
+        var getUser = GetUserInfo();
+        await Task.WhenAll(getUser, Task.Delay(400));
 
         LoadingSpinner.IsRunning = false;
         LoadingSpinner.IsVisible = false;
@@ -43,6 +50,39 @@ public partial class UserSettingsPage : ContentPage
             keyboard: Keyboard.Text);
     }
     #endregion
+
+    private async Task GetUserInfo()
+    {
+        try
+        {
+            using (var db = new AppDbContext())
+            {
+                var userData = await db.Users.FirstOrDefaultAsync(u => u.UserId == _userId);
+
+                if (userData != null)
+                {
+                    UserName = userData.Name ?? "N/A";
+                }
+                else
+                {
+                    await DisplayAlert("Message", "Something went wrong, no user found!", "Ok");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Database error: {ex.Message}", "Ok");
+        }
+    }
+
+    private async Task<List<Medicine>> GetUserMedicines(int userId)
+    {
+        using (var db = new AppDbContext())
+        {
+            var medicines = await db.Medicines.Where(m => m.UserId == userId).ToListAsync();
+            return medicines;
+        }
+    }
 
     #region On Update User Clicked
     private async void OnUpdateUserClicked(object sender, EventArgs e)

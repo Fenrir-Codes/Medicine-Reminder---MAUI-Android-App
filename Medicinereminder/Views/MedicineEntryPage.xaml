@@ -10,37 +10,34 @@
         <BoxView Grid.Row="0" BackgroundColor="#212121" />
         <BoxView Grid.Row="1" BackgroundColor="white" />
 
-        <VerticalStackLayout Grid.Row="0"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center"
-                     Spacing="2"
-                     Padding="10,0">
+        <Grid Grid.Row="0" BackgroundColor="#212121" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!-- Title -->
-            <Label 
+            <!-- Cím középen -->
+            <Label
                 Text="Medicine Details" 
-                FontSize="28"
-                FontAttributes="Bold"
-                TextColor="GreenYellow"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"/>
-
-            <!-- Registered medicine details row -->
-            <HorizontalStackLayout 
+                Grid.Column="1"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                WidthRequest="250"
-                Spacing="5">
-                
-                <Label 
-                    Text="Register the medicine details"
-                    FontSize="18"
-                    TextColor="White"
-                    HorizontalOptions="Start"/>
-                
-            </HorizontalStackLayout>
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="GreenYellow" />
 
-        </VerticalStackLayout>
+            <!-- Jobb oldali ikon -->
+            <Image
+                 Grid.Column="2"
+                 Margin="0,0,20,0"
+                   Source="edit.png"
+                 WidthRequest="32"
+                 HeightRequest="32"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"
+                 BackgroundColor="Transparent"/>
+        </Grid>
 
         <!--  Grid  -->
         <Grid Grid.Row="1" Padding="20" RowSpacing="10">

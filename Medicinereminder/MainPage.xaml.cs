@@ -1,4 +1,5 @@
-﻿using Medicinereminder.DataBase;
+﻿using CommunityToolkit.Maui.Core;
+using Medicinereminder.DataBase;
 using Medicinereminder.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
@@ -131,6 +132,9 @@ namespace Medicinereminder
 
                 // Add the new user to the database
                 db.Users.Add(user);
+
+                var NF = new NotificationService();
+                NF.DisplayAlerMessage("Success", $"Created successfully", ToastDuration.Short, 18);
 
                 // Save changes asynchronously to the database
                 await db.SaveChangesAsync();

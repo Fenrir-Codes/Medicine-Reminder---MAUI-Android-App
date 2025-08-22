@@ -10,22 +10,34 @@
         <BoxView Grid.Row="0" BackgroundColor="#212121" />
         <BoxView Grid.Row="1" BackgroundColor="white" />
 
-        <VerticalStackLayout Grid.Row="0"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center"
-                     Spacing="2"
-                     Padding="10,0">
+        <Grid Grid.Row="0" BackgroundColor="#212121" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!-- Title -->
-            <Label 
+            <!-- Title centered -->
+            <Label
                 Text="Edit Details" 
-                FontSize="28"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="26"
                 FontAttributes="Bold"
-                TextColor="GreenYellow"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"/>
+                TextColor="GreenYellow" />
 
-        </VerticalStackLayout>
+            <!-- Icon on right -->
+            <Image
+                Grid.Column="2"
+                Margin="0,0,20,0"
+                Source="edit.png"
+                WidthRequest="32"
+                HeightRequest="32"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                BackgroundColor="Transparent"/>
+        </Grid>
 
         <ActivityIndicator 
             x:Name="LoadingSpinner"

@@ -4,49 +4,68 @@
              x:Class="Medicinereminder.MainPage"
              Title="Medicine Reminder">
 
-    <Grid RowDefinitions="70,*,70">
+    <Grid RowDefinitions="70,*,70" BackgroundColor="#424242">
 
         <!-- Top -->
-        <BoxView Grid.Row="0" BackgroundColor="#212121" />
-        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+        <BoxView Grid.Row="0" BackgroundColor="#424242" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" CornerRadius="25,25,0,0" />
 
-        <VerticalStackLayout 
-             Grid.Row="0"
-             VerticalOptions="Center"
-             HorizontalOptions="Center"
-             Spacing="2"
-             Padding="10,0">
+        <Grid Grid.Row="0" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Title + Icon -->
+                <RowDefinition Height="Auto"/>
+                <!-- Registered Users -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!-- Title -->
+            <!-- Title centered -->
             <Label 
+                x:Name="PageTopLabel"
                 Text="Medicine Reminder" 
-                FontSize="28"
-                FontAttributes="Bold"
-                TextColor="GreenYellow"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"/>
-
-            <!-- Registered users row -->
-            <HorizontalStackLayout 
+                Grid.Row="0"
+                Grid.Column="1"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                WidthRequest="200"
-                Spacing="5">
-                
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="GreenYellow" />
+
+            <!-- Icon on right -->
+            <Image
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="0,0,20,0"
+                Source="people.png"
+                WidthRequest="32"
+                HeightRequest="32"
+                HorizontalOptions="End"
+                VerticalOptions="Center"/>
+
+            <!-- Registered users + counter -->
+            <HorizontalStackLayout 
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="6">
+
                 <Label 
-                    Text="Registered User's"
-                    FontSize="18"
-                    TextColor="White"
-                    HorizontalOptions="Start"/>
+                    Text="Registered Users"
+                    FontSize="16"
+                    TextColor="White"/>
 
                 <Label x:Name="_userCountLabel"
                     Text="{Binding _userCountText}"
                     FontSize="18"
-                    TextColor="Green"
-                    HorizontalOptions="End"/>
+                    TextColor="Green"/>
             </HorizontalStackLayout>
+        </Grid>
 
-        </VerticalStackLayout>
 
         <!--  Activity indicator  -->
         <ActivityIndicator 
@@ -57,12 +76,13 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             Color="GreenYellow"/>
-
+        
         <!-- List -->
         <VerticalStackLayout 
             Grid.Row="1" 
             x:Name="ContentLayout" 
-            Padding="20">
+            Padding="20"
+            >
 
             <CollectionView x:Name="UsersCollectionView">
                 
@@ -72,7 +92,8 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Stroke="LightGray"
+                        <Border 
+                            Stroke="#424242"
                             StrokeShape="RoundRectangle 12"
                             HeightRequest="60"
                             WidthRequest="360">
@@ -130,19 +151,21 @@
             </VerticalStackLayout>
 
             <!-- Divider -->
-            <BoxView Grid.Column="1"
-                     WidthRequest="2"
-                     BackgroundColor="#555"
-                     HorizontalOptions="Center"
-                     VerticalOptions="Fill"
-                     Margin="0,2"
-                     CornerRadius="1"/>
+            <BoxView 
+                Grid.Column="1"
+                WidthRequest="2"
+                BackgroundColor="#555"
+                HorizontalOptions="Center"
+                VerticalOptions="Fill"
+                Margin="0,2"
+                CornerRadius="1"/>
 
             <!-- 2 delete button -->
-            <VerticalStackLayout Grid.Column="2"
-                         HorizontalOptions="Fill"
-                         VerticalOptions="Center"
-                         Spacing="2">
+            <VerticalStackLayout 
+                Grid.Column="2"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                Spacing="2">
                 <Image Source="trash.png"
                        WidthRequest="32"
                        HeightRequest="32"

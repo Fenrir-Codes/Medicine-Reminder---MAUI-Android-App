@@ -5,38 +5,39 @@
              Title="UserSettingsPage">
 
 
-    <Grid RowDefinitions="70,*,70">
+    <Grid RowDefinitions="70,*,70" BackgroundColor="#424242">
 
         <!-- Top -->
-        <BoxView Grid.Row="0" BackgroundColor="#212121" />
-        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+        <BoxView Grid.Row="0" BackgroundColor="#424242" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" CornerRadius="25,25,0,0" />
 
-        <VerticalStackLayout 
-             Grid.Row="0"
-             VerticalOptions="Center"
-             HorizontalOptions="Center"
-             Spacing="2"
-             Padding="10,0">
+        <Grid Grid.Row="0" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
             <!-- Title -->
-            <Label 
+            <Label
                 Text="User Settings" 
-                FontSize="28"
-                FontAttributes="Bold"
-                TextColor="GreenYellow"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"/>
-
-            <!-- Settings content -->
-            <HorizontalStackLayout 
+                Grid.Column="1"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                WidthRequest="200"
-                Spacing="5">
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="GreenYellow" />
 
-            </HorizontalStackLayout>
-
-        </VerticalStackLayout>
+            <Image
+                 Grid.Column="2"
+                 Margin="0,0,20,0"
+                 Source="settings.png"
+                 WidthRequest="32"
+                 HeightRequest="32"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"
+                 BackgroundColor="Transparent"/>
+        </Grid>
 
         <!--  Activity indicator  -->
         <ActivityIndicator 
@@ -53,10 +54,11 @@
             x:Name="ContentLayout" 
             Padding="20">
 
-            <Border Stroke="LightGray"
-        StrokeShape="RoundRectangle 12"
-        HeightRequest="60"
-        WidthRequest="360">
+            <Border 
+                Stroke="LightGray"
+                StrokeShape="RoundRectangle 12"
+                HeightRequest="600"
+                WidthRequest="360">
 
                 <Border.Background>
                     <LinearGradientBrush EndPoint="1,0">

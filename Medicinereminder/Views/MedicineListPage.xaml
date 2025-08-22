@@ -5,63 +5,63 @@
              Title="MedicineListPage">
 
 
-    <Grid RowDefinitions="70,*,70">
+    <Grid RowDefinitions="70,*,70" BackgroundColor="#424242">
 
         <!-- Felső rész -->
-        <BoxView Grid.Row="0" BackgroundColor="#212121" />
-        <BoxView Grid.Row="1" BackgroundColor="#212121" />
+        <BoxView Grid.Row="0" BackgroundColor="#424242" />
+        <BoxView Grid.Row="1" BackgroundColor="#212121" CornerRadius="25,25,0,0" />
 
-        <Grid Grid.Row="0" BackgroundColor="#212121" Padding="10">
+        <Grid Grid.Row="0" Padding="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Cím -->
+            <!-- Title centered -->
             <Label 
                 x:Name="PageTopLabel"
                 Text="Medicin List" 
-                Grid.Column="0"
+                Grid.Column="1"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                FontSize="28"
+                FontSize="26"
                 FontAttributes="Bold"
                 TextColor="GreenYellow" />
 
-            <!-- Fogaskerék gomb -->
-            <ImageButton
-                Grid.Column="1"
-                Margin="0,0,10,0"
-                Source="settings.png"
+            <!-- Icon on right -->
+            <Image
+                Grid.Column="2"
+                Margin="0,0,20,0"
+                Source="medlist.png"
                 WidthRequest="32"
                 HeightRequest="32"
-                HorizontalOptions="Center"
+                HorizontalOptions="End"
                 VerticalOptions="Center"
-                BackgroundColor="Transparent"
-                Clicked="OnSettingsIconClicked"/>
+                BackgroundColor="Transparent"/>
         </Grid>
 
         <Label 
-           x:Name="InfoLabel"
-           Grid.Row="1"
-           Text=""
-           FontSize="18"
-           TextColor="Gray"
-           HorizontalTextAlignment="Center"
-           VerticalOptions="Center"
-           HorizontalOptions="Center"
-           IsVisible="False" />
+            x:Name="InfoLabel"
+            Grid.Row="1"
+            Text=""
+            FontSize="18"
+            TextColor="Gray"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            IsVisible="False" />
 
         <!-- Lista -->
-        <CollectionView Grid.Row="1" x:Name="MedicinesCollectionView" Margin="10,10">
-            
+        <CollectionView Grid.Row="1" x:Name="MedicinesCollectionView" Margin="20">
+
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border Stroke="LightGray"
+                    <Border Stroke="#424242"
                             StrokeShape="RoundRectangle 12"
                             HeightRequest="60"
                             WidthRequest="360">
@@ -92,11 +92,11 @@
 
         <Grid Grid.Row="2"
               BackgroundColor="#212121"
-              ColumnDefinitions="*,5,*"  
+              ColumnDefinitions="*,5,*,5,*"  
               Padding="5">
 
 
-            <!-- 1: Home -->
+            <!-- 1: Add -->
             <VerticalStackLayout Grid.Column="0"
                   HorizontalOptions="Fill"
                   VerticalOptions="Center"
@@ -127,8 +127,39 @@
               Margin="0,2"
               CornerRadius="1"/>
 
-            <!-- 2: Wallet -->
+            <!--  Settings  -->
             <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 Spacing="2">
+
+                <Image Source="settings.png"
+                       WidthRequest="32"
+                       HeightRequest="32"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="User Settings"
+                       FontSize="16"
+                       TextColor="GreenYellow"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsIconClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+            <!-- Divider -->
+            <BoxView Grid.Column="3"
+                     WidthRequest="2"
+                     BackgroundColor="#555"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Fill"
+                     Margin="0,2"
+                     CornerRadius="1"/>
+
+            <!-- 2: Back -->
+            <VerticalStackLayout Grid.Column="4"
                                  HorizontalOptions="Fill"
                                  VerticalOptions="Center"
                                  Spacing="2">

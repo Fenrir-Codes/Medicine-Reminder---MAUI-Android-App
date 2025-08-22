@@ -20,7 +20,7 @@ public partial class MedicineListPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        PageTopLabel.Text = $"{_userName}'s medicine list";
+        PageTopLabel.Text = $"{_userName}'s List";
         await LoadMedicines();
     }
 
@@ -75,7 +75,7 @@ public partial class MedicineListPage : ContentPage
     #region On Settings Icon Clicked
     private async void OnSettingsIconClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new UserSettingsPage(_userId, _userName));
+        await Navigation.PushAsync(new UserSettingsPage(_userId));
     }
     #endregion
 
