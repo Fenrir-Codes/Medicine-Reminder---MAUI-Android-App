@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medicinereminder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+99598a911672da10edcb323bd011ebf30c23366f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Medicinereminder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medicinereminder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

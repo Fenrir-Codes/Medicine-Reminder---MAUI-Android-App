@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\Medicinereminder.csproj": {}
+    "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\Medicinereminder.csproj": {}
   },
   "projects": {
-    "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\Medicinereminder.csproj": {
+    "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\Medicinereminder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\Medicinereminder.csproj",
+        "projectUniqueName": "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\Medicinereminder.csproj",
         "projectName": "Medicinereminder",
-        "projectPath": "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\Medicinereminder.csproj",
+        "projectPath": "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\Medicinereminder.csproj",
         "packagesPath": "C:\\Users\\Joseph\\.nuget\\packages\\",
-        "outputPath": "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\obj\\",
+        "outputPath": "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

@@ -6,7 +6,7 @@
     <Grid RowDefinitions="70,*,70" BackgroundColor="#424242">
 
         <!-- Top -->
-        <BoxView Grid.Row="0" BackgroundColor="#424242" />
+        <BoxView Grid.Row="0" BackgroundColor="#424242"/>
         <BoxView Grid.Row="1" BackgroundColor="#212121" CornerRadius="25,25,0,0" />
 
         <Grid Grid.Row="0" Padding="10">
@@ -64,10 +64,10 @@
                   
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Medicin:" FontSize="16" TextColor="White" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Medicin: " FontSize="16" TextColor="White" Grid.Row="0" Grid.Column="0"/>
                 <Label x:Name="NameLabel" FontSize="16"  TextColor="GreenYellow" Text="N/A" Grid.Row="0" Grid.Column="1"/>
 
-                <Label Text="Schedules:" FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="2"/>
+                <!--<Label Text="Schedules:" FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="2"/>-->
 
                 <ScrollView Grid.Row="3" Grid.ColumnSpan="2" Margin="10" HeightRequest="580">
                     

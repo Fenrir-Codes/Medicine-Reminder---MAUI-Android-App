@@ -20,67 +20,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Medicinereminder
-build_property.ProjectDir = H:\C# Project Reopsitories\repos\Medicinereminder\Medicinereminder\
+build_property.ProjectDir = H:\GitHub repositories\Medicine-Reminder---MAUI-Android-App\Medicinereminder\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/App.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/AppShell.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/MainPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Resources/Styles/Colors.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Resources/Styles/Styles.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Views/MedicineDetailsPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Views/MedicineDetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Views.MedicineDetailsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\MedicineDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\MedicineDetailsPage.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Views/MedicineEditPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Views/MedicineEditPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Views.MedicineEditPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\MedicineEditPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\MedicineEditPage.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Views/MedicineEntryPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Views/MedicineEntryPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Views.MedicineEntryPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\MedicineEntryPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\MedicineEntryPage.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Views/MedicineListPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Views/MedicineListPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Views.MedicineListPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\MedicineListPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\MedicineListPage.xaml
 
-[H:/C\# Project Reopsitories/repos/Medicinereminder/Medicinereminder/Views/UserSettingsPage.xaml]
+[H:/GitHub repositories/Medicine-Reminder---MAUI-Android-App/Medicinereminder/Views/UserSettingsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Medicinereminder.Views.UserSettingsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\UserSettingsPage.xaml

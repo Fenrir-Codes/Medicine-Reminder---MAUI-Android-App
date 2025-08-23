@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e0UNi3LjdKI=",
+  "dgSpecHash": "bHbxFX/sERk=",
   "success": true,
-  "projectFilePath": "H:\\C# Project Reopsitories\\repos\\Medicinereminder\\Medicinereminder\\Medicinereminder.csproj",
+  "projectFilePath": "H:\\GitHub repositories\\Medicine-Reminder---MAUI-Android-App\\Medicinereminder\\Medicinereminder.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joseph\\.nuget\\packages\\communitytoolkit.maui\\9.0.1\\communitytoolkit.maui.9.0.1.nupkg.sha512",
     "C:\\Users\\Joseph\\.nuget\\packages\\communitytoolkit.maui.core\\9.0.1\\communitytoolkit.maui.core.9.0.1.nupkg.sha512",
